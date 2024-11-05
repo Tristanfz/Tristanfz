@@ -16,7 +16,6 @@ You can click the Preview link to take a look at your changes.
 
 #define MAX_CHARACTERS 10
 
-// Struct untuk manusia dan hewan peliharaan
 typedef struct {
     char nama[20];
     int energy;
@@ -29,12 +28,10 @@ typedef struct {
     int loves;
 } Pet;
 
-// Daftar karakter
 Human humans[MAX_CHARACTERS];
 Pet pets[MAX_CHARACTERS];
 int humanCount = 0, petCount = 0;
 
-// Fungsi untuk menambah karakter
 void addHuman(char *nama, int energy, int loves) {
     strcpy(humans[humanCount].nama, nama);
     humans[humanCount].energy = energy;
@@ -49,7 +46,6 @@ void addPet(char *nama, int energy, int loves) {
     petCount++;
 }
 
-// Fungsi aktivitas "petting" untuk meningkatkan loves pada Pet
 void petting(char *petName) {
     for (int i = 0; i < petCount; i++) {
         if (strcmp(pets[i].nama, petName) == 0) {
@@ -61,7 +57,6 @@ void petting(char *petName) {
     printf("Pet with name %s not found.\n", petName);
 }
 
-// Fungsi untuk menampilkan atribut karakter
 void showAttributes(char *name) {
     for (int i = 0; i < humanCount; i++) {
         if (strcmp(humans[i].nama, name) == 0) {
@@ -80,7 +75,6 @@ void showAttributes(char *name) {
     printf("Character with name %s not found.\n", name);
 }
 
-// Fungsi untuk mengurutkan dan menampilkan pet berdasarkan loves
 void showSortedPetsByLoves() {
     for (int i = 0; i < petCount - 1; i++) {
         for (int j = i + 1; j < petCount; j++) {
@@ -97,7 +91,6 @@ void showSortedPetsByLoves() {
     }
 }
 
-// Fungsi utama untuk menjalankan simulasi
 void simulation() {
     char command[50], name[20];
     while (1) {
@@ -118,16 +111,14 @@ void simulation() {
     }
 }
 
-// Fungsi main
 int main() {
-    // Tambahkan karakter default
     addHuman("Diana", 60, 80);
     addHuman("Yuki", 55, 90);
     addPet("Capy", 50, 90);
     addPet("Milos", 40, 70);
     addPet("Snowy", 45, 85);
 
-    // Jalankan simulasi
     simulation();
     return 0;
 }
+
